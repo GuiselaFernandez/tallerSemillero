@@ -3,6 +3,9 @@ package com.clearminds.gmfp.bdd;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 
 public class ConexionBDD {
@@ -21,15 +24,37 @@ public class ConexionBDD {
 			e.printStackTrace();
 			return null;
 		} finally {
-			if ("propiedad1".equals(nombrePropiedad)) {
-				return p.getProperty("propiedad1");
-			} else if ("propiedad2".equals(nombrePropiedad)) {
-				return p.getProperty("propiedad2");
-			} else {
-				return null;
+			if ("usuario".equals(nombrePropiedad)) {
+				return p.getProperty("usuario");
+			} else if ("password".equals(nombrePropiedad)) {
+				return p.getProperty("password");
+			} else if ("urlConexion".equals(nombrePropiedad)) {
+				return p.getProperty("urlConexion");
 			}
-
+			return null;
+			}
+		
+	}
+	
+	public static Connection obtenerConexion() {
+		String usuario = leerPropiedad("usuario");
+		String password = leerPropiedad("password");
+		String urlConexion = leerPropiedad("urlConexion");
+		
+		Connection conn = null;
+		System.out.println(usuario+password+urlConexion);
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); 
+			conn= DriverManager.getConnection(urlConexion, usuario, password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
+		return conn;
 	}
 
 }

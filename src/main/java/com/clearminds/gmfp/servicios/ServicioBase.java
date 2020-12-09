@@ -7,6 +7,16 @@ import com.clearminds.gmfp.bdd.ConexionBDD;
 
 public class ServicioBase {
 	public Connection conexion;
+	
+	
+	public Connection getConexion() {
+		return conexion;
+	}
+
+	public void setConexion(Connection conexion) {
+		this.conexion = conexion;
+	}
+
 	public void abrirConexion() {
 		new ConexionBDD();
 		conexion= ConexionBDD.obtenerConexion();

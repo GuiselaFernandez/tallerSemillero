@@ -42,7 +42,6 @@ public class ConexionBDD {
 		String urlConexion = leerPropiedad("urlConexion");
 		
 		Connection conn = null;
-		System.out.println(usuario+password+urlConexion);
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); 
 			conn= DriverManager.getConnection(urlConexion, usuario, password);

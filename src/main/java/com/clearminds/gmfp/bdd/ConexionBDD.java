@@ -1,5 +1,6 @@
 package com.clearminds.gmfp.bdd;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,8 +13,11 @@ public class ConexionBDD {
 	@SuppressWarnings("finally")
 	public static String leerPropiedad(String nombrePropiedad) {
 		Properties p = new Properties();
+		File f=new File("conexion.properties");
+		System.out.println("ruta:"+f.getAbsoluteFile());
+
 		try {
-			p.load(new FileReader("properties"));
+			p.load(new FileReader(f.getAbsoluteFile()));
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

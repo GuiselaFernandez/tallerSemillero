@@ -1,6 +1,6 @@
 package com.clearminds.gmfp.excepciones;
 
-public class BDDException extends RuntimeException {
+public class BDDException extends Exception {
 	public BDDException(String mensaje)
 	{
 		super(mensaje);

@@ -1,14 +1,15 @@
 package com.clearminds.gmfp.servicios;
 
 import java.sql.Connection;
+
 import java.sql.SQLException;
 
 import com.clearminds.gmfp.bdd.ConexionBDD;
+import com.clearminds.gmfp.excepciones.BDDException;
 
 public class ServicioBase {
 	public Connection conexion;
-	
-	
+
 	public Connection getConexion() {
 		return conexion;
 	}
@@ -17,23 +18,24 @@ public class ServicioBase {
 		this.conexion = conexion;
 	}
 
-	public void abrirConexion() {
+	public void abrirConexion() throws BDDException {
 		new ConexionBDD();
-		conexion= ConexionBDD.obtenerConexion();
+		conexion = ConexionBDD.obtenerConexion();
+
 	}
-	
+
 	public void cerrarConexion() {
 		try {
-			if(conexion!=null){
-			conexion.close();
-			System.out.println("Conexión cerrada");
+			if (conexion != null) {
+				conexion.close();
+				System.out.println("Conexión cerrada");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("Error al cerrar la conexion");
 		}
-		
+
 	}
 
 }

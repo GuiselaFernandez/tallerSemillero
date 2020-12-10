@@ -1,6 +1,5 @@
 package com.clearminds.gmfp.servicios;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -11,7 +10,7 @@ public class ServicioEstudiante extends ServicioBase {
 
 	public void insertarEstudiante(Estudiante estudiante) throws BDDException {
 		abrirConexion();
-		System.out.println("insertando estudiante " + estudiante.toString());
+		System.out.println("insertando estudiante " + estudiante);
 		Statement stmt = null;
 		try {
 			stmt = getConexion().createStatement();
@@ -31,7 +30,7 @@ public class ServicioEstudiante extends ServicioBase {
 	
 	public void actualizarEstudiante(Estudiante estudiante) throws BDDException{
 		abrirConexion();
-		System.out.println("Actualizando estudiante " + estudiante.toString());
+		System.out.println("Actualizando estudiante " + estudiante);
 		Statement stmt = null;
 		try {
 			stmt = getConexion().createStatement();

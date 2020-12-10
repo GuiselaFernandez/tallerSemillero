@@ -10,7 +10,7 @@ public class TestServicio {
 	public static void main(String[] args) throws SQLException {
 		ServicioEstudiante servicioEstudiante = new ServicioEstudiante();
 		try {
-			servicioEstudiante.insertarEstudiante(new Estudiante("Manuel", "Luz"));
+			servicioEstudiante.insertarEstudiante(new Estudiante("Manuel", "Luz",15));
 		} catch (BDDException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

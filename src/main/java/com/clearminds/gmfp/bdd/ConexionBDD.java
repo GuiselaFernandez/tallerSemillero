@@ -12,7 +12,7 @@ import java.util.Properties;
 import com.clearminds.gmfp.excepciones.BDDException;
 
 public class ConexionBDD {
-	@SuppressWarnings("finally")
+
 	public static String leerPropiedad(String nombrePropiedad) {
 		Properties p = new Properties();
 		File f=new File("conexion.properties");
